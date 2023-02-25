@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+		  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+		  crossorigin="" />
+	<link rel="stylesheet" href="Estilos.css">
+	<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+			integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+			crossorigin=""></script>
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+	<script src="Script2.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<nav class="navbar sticky-top  navbar-expand-sm navbar-light bg-primary navbar-fixed-top">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- enlaces -->
+		<div class="collapse navbar-collapse " id="opciones">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="#profilediv">Perfil</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="#Skill">Habilidades</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#datediv">Datos Personales</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#contactodiv">Contacto</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#Address">Direccion</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#experienciaLaboral">Experiencia laboral</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#formacionAcademica">Formacion Academica</a>
+				</li>
+
+			</ul>
+		</div>
+	</nav>
+
+
+
+
+	<div id="profilediv" class="horizontal-padding vertical-padding">
+		<section class="profile">
+
+			<div class="profile-info">
+				<h1 id="nombre"> </h1>
+
+				<p class="profile-details">
+					Soy estudiante avanzado de la carrera
+					Ingeniería en Informática en la Facultad de
+					Tecnología y Cs. Aplicadas de la
+					Universidad Nacional de Catamarca. Me
+					gusta la programación, el testeo manual de
+					aplicaciones, el trabajo en equipo y
+					aprender las nuevas tecnologías de punta
+					con el fin de ser competente para el
+					mercado actual.
+				</p>
+			</div>
+			<span class="profile-img-section">
+				<img class="profile-img" id="fotoCv" />
+			</span>
+
+		</section>
+
+
+	</div>
+	<div id="Skill" class="horizontal-padding vertical-padding">
+		<section class="skills">
+			<fieldset>
+
+				<legend>Habilidades</legend>
+				<ul class="skills-list">
+					<li class="skills-skill">CSS</li>
+					<li class="skills-skill">HTML</li>
+					<li class="skills-skill">Java</li>
+					<li class="skills-skill">Spring</li>
+					<li class="skills-skill">Sql</li>
+					<li class="skills-skill">JavaScript</li>
+				</ul>
+			</fieldset>
+		</section>
+	</div>
+	<div id="datediv" class="horizontal-padding vertical-padding">
+		<section class="sectiondatos" id="sectiondatos">
+			<fieldset id="datos">
+				<legend>Datos Personales </legend>
+				<ul>
+					<li id="dni">dni:39674441</li>
+					<li id="Genero"></li>
+					<li id="fechaNac"></li>
+				</ul>
+			</fieldset>
+		</section>
+	</div>
+	<div id="contactodiv" class="horizontal-padding vertical-padding">
+		<section class="sectioncontacto" id="sectiondatos">
+			<fieldset id="Contacto">
+				<legend>Contacto </legend>
+				<ul id="listaContacto">
+					<li id="email"></li>
+
+				</ul>
+				<a id="verMasContacto" onclick="muestraContacto()" href="javascript:void(0);">ver mas</a>
+			</fieldset>
+		</section>
+	</div>
+
+	<fieldset id="Address">
+		<legend>Direccion</legend>
+		<ul id="Direccion">
+			<li id="Pais"></li>
+			<li id="Provincia"></li>
+			<li id="Ciudad"></li>
+		</ul>
+
+		<a id="verMapa" onclick="muestraMapa()" style="display: none;" href="javascript:void(0);">Ver Mapa</a>
+		<a id="verMasDireccion" onclick="muestraDireccion()" href="javascript:void(0);">ver mas</a>
+		<div id="map" style="height: 800px; display: none;"></div>
+
+
+
+	</fieldset>
+	<div id="experienciaLaboral" class="horizontal-padding vertical-padding">
+		<section class="experiences">
+			<fieldset>
+				<legend>Experiencia Laboral </legend>
+				<img src="wave.svg" alt="división" class="wave">
+				<div class="experiences-body">
+					<div class="experiences-grid">
+						<div class="empty"></div>
+						<div class="line"></div>
+						<div class="experience">
+							<div class="experience-date">2022</div>
+							<div class="experience-company">Incluit</div>
+							<div class="experience-position">Software Developer back-end</div>
+							<div class="experience-description">
+								Software Developer back-end, desarrollando end-point y
+								de mas componentes necesarios para cumplir con los
+								requerimientos del cliente Mexicano seguritech en un
+								sistema de ciberseguridad y en un sistema de
+								geolocalización de tobilleras electrónicas.
+							</div>
+						</div>
+						<div class="experience experience_left">
+							<div class="experience-date">2020</div>
+							<div class="experience-company">
+								Universidad Nacional de Catamarca | Facultad de
+								Tecnología y Ciencias Aplicadas
+							</div>
+							<div class="experience-position">QA Manual</div>
+							<div class="experience-description">
+								Testeo, evaluación y reingeniería de procesos de UX de
+								aplicación móvil en desarrollo de Banco Nación Argentina,
+								dentro del marco del convenio entre el Banco de la Nación
+								Argentina y la UNCA.
+
+							</div>
+						</div>
+						<div class="line"></div>
+						<div class="empty"></div>
+						<div class="empty"></div>
+						<div class="line"></div>
+						<div class="experience">
+							<div class="experience-date">2015-2017</div>
+							<div class="experience-company">
+								Universidad Nacional de Catamarca | Facultad de
+								Tecnología y Ciencias Aplicadas
+							</div>
+							<div class="experience-position">Capacitador Voluntario</div>
+							<div class="experience-description">
+								En el taller de Facebook para adulto
+								mayores, en Universidad Nacional de Catamarca | Facultad
+								de Tecnología y Ciencias Aplicadas dentro del marco del
+								PROYECTO DE COMPROMISO SOCIAL UNIVERSITARIO
+								“ABUELOS 2.0: ME GUSTA”- CONVOCATORIA 2016
+							</div>
+						</div>
+					</div>
+				</div>
+				<img src="wave.svg" alt="división" class="wave wave_bottom">
+			</fieldset>
+		</section>
+	</div>
+
+	<div id="experienciaLaboral" class="horizontal-padding vertical-padding">
+		<section>
+			<fieldset id="formacionAcademica">
+				<legend>Formacion Academica </legend>
+				<ul>
+					<li id="EstudioPrimario">Estudio Primario: Esc Sarmiento oreno</li>
+					<li id="EstudioSecundario">Estudio Secundario: Esc Jorge Newvery</li>
+					<li id="EstudioTerciario">Estudio Universitario: Universidad Nacional de Catamarca </li>
+				</ul>
+			</fieldset>
+		</section>
+
+</div>
+</body>
+</html>
